@@ -5,7 +5,7 @@
 #include "Catch.h"
 
 
-namespace
+namespace 
 {
     void test_switch_endianness_16bit(uint16_t x, uint16_t expected)
     {
