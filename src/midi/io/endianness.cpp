@@ -16,7 +16,7 @@ namespace io {
 		uint64_t byte_E = (*n & 0x000000FF00000000) >> 8;
 		uint64_t byte_D = (*n & 0x00000000FF000000) << 8;
 		uint64_t byte_C = (*n & 0x0000000000FF0000) << 24;
-		uint64_t byte_B= (*n & 0x000000000000FF00) << 40;
+		uint64_t byte_B = (*n & 0x000000000000FF00) << 40;
 		uint64_t byte_A = (*n & 0x00000000000000FF) << 56;
 
 		*n = byte_A | byte_B | byte_C | byte_D | byte_E | byte_F | byte_G | byte_H;

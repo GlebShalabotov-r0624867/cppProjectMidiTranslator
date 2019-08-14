@@ -7,21 +7,21 @@
 
 namespace io {
 	template <typename T>
-	void read_to(std::istream& input, T* buffer, size_t size) {
-		input.read(reinterpret_cast<char*>(buffer), sizeof(T) * size);
-		CHECK(!input.fail()) << __FUNCTION__ << "didn't pass" ;
+	void read_to(std::istream& in, T* buffer, size_t size) {
+		in.read(reinterpret_cast<char*>(buffer), sizeof(T) * size);
+		CHECK(!in.fail()) << __FUNCTION__ << " didn't pass" ;
 	};
 
 	template<typename T>
-	void read_to(std::istream& input, T* buffer) {
-		read_to(input, buffer, 1);
+	void read_to(std::istream& in, T* buffer) {
+		read_to(in, buffer, 1);
 	};
 
 	template<typename T, typename std::enable_if<std::is_fundamental<T>::value, T>::type* = nullptr>
-	T read(std::istream& input)
+	T read(std::istream& in)
 	{
 		T buffer;
-		read_to(input, &buffer);
+		read_to(in, &buffer);
 		return buffer;
 	};
 
