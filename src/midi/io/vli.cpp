@@ -1,4 +1,5 @@
 #include <io/vli.h>
+#include "io/read.h"
 
 namespace io {
 	bool leftBitIsOne(uint8_t byte) {
@@ -12,7 +13,8 @@ namespace io {
 
 	uint64_t read_variable_length_integer(std::istream& in) {
 		uint8_t byte = read<uint8_t>(in);
-		uint64_t count = 0; 
+		uint64_t count = 0;
+
 		while (leftBitIsOne(byte)) {
 			count = (count << 7) | rightest7Bits(byte);
 			byte = read<uint8_t>(in);
